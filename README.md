@@ -1,93 +1,41 @@
-Text-to-Speech Studio (Voilá + ipywidgets)
+# 🗣️ Text-to-Speech (TTS) Notebook
 
-Generate speech from text or PDFs, auto-detect speakers, manage a pronunciation dictionary, preview samples, and export a ZIP (clips, manifest, usage).
+This project provides an interactive **Text-to-Speech (TTS) system** built in a Jupyter Notebook environment.  
+It allows users to input text directly or upload a PDF, split text into smaller segments, generate audio using **gTTS**, and selectively package chosen segments into a downloadable ZIP file.  
+The front-end is powered by **ipywidgets**, making it deployable with **Voila** or on platforms like **Databricks**.
 
-Requirements
+---
 
-Python 3.10+
+## 🚀 Features
 
-OpenAI API key (TTS access)
+- **Multiple Input Modes**
+  - Type or paste text directly.
+  - Upload PDF files and extract text.
 
-Quick Setup
-# clone & enter
-git clone https://github.com/<you>/TTS.git
-cd TTS
+- **Automatic Segmentation**
+  - Split extracted text into ~3 equal segments for easier playback.
+  - Each segment processed separately for modular audio.
 
-# venv
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
+- **Audio Generation**
+  - Convert each text segment to `.mp3` using [gTTS](https://pypi.org/project/gTTS/).
+  - Built-in playback widgets for preview.
 
-# install
-pip install -r requirements.txt
+- **Selective Export**
+  - Use checkboxes to select desired segments.
+  - Package selected audio files into a `.zip` with a base64 download link.
 
-Configure API
+- **Interactive UI**
+  - Built with `ipywidgets` for toggles, checkboxes, dynamic labels, and download buttons.
+  - Designed for use in Jupyter + Voila dashboards.
 
-Copy api.env.example → api.env and set:
+---
 
-OPENAI_API_KEY=sk-...
-OPENAI_TTS_MODEL=gpt-4o-mini-tts
-OPENAI_TTS_VOICE=alloy
-# Optional estimates:
-TTS_PRICE_PER_1K_TOKENS=0.0
-TTS_SECS_PER_TOKEN_EST=0.22
-HUMAN_VO_RATE_PER_FINISHED_MIN=0.0
+## 📂 Project Structure
 
-Run (recommended)
-voila TTSNotebook1.ipynb
-
-
-Open the served URL (usually http://localhost:8866/).
-
-Running inside plain Jupyter will look different; Voilá is the intended UI.
-
-How to Use
-
-Choose input: Type/paste text or upload a PDF.
-
-(Optional) Speakers: Use Alice: Hi or [Alice] Hi; click Detect, assign voices, Save.
-
-Generate Audio: Hear first 3 samples.
-
-Approve: Render all clips and download the ZIP (with manifest.csv, usage.json, pronunciations.csv snapshot, and input_text.txt).
-
-Project Layout
-TTSNotebook1.ipynb       # main app (Voilá entry)
-requirements.txt
-api.env.example
-README.md
-.gitignore
-# created at runtime:
-samples/                 # previews + voice_previews/
-clips/                   # final WAVs + full_document.wav
-pronunciations.csv       # your dictionary (persisted)
-
-.gitignore (important)
-# env & runtime
-api.env
-.venv/
-.ipynb_checkpoints/
-samples/
-clips/
-*.zip
-pronunciations.csv
-
-Troubleshooting
-
-Weird layout? Use voila TTSNotebook1.ipynb instead of running in Jupyter.
-
-PDF text missing? It might be scanned—OCR first, then paste text.
-
-Databricks (brief)
-
-Repos → add this repo.
-
-%pip install -r /Workspace/Repos/<you>/TTS/requirements.txt
-
-Prefer hosting Voilá externally; call Databricks via REST/SQL endpoints from the app.
-
-License
-
-See LICENSE.
+TTS/
+│── notebooks/
+│ └── tts_app.ipynb # Main interactive notebook
+│── requirements.txt # Python dependencies
+│── README.md # This file
+│── LICENSE
+│── .gitignore
