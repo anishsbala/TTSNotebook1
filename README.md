@@ -1,11 +1,4 @@
-Here’s a polished version. It uses badges, emojis, cleaner section dividers, and clearer hierarchy. Copy the full block into `README.md` to keep formatting.
-
-````markdown
 # 🎙️ Text-to-Speech (TTS) Notebook  
-
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)  
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)  
-[![Voila](https://img.shields.io/badge/Voila-Web%20App-success.svg)](https://voila.readthedocs.io/)  
 
 Turn **text or PDF files into audio** with an interactive Jupyter Notebook. Powered by **Google Text-to-Speech (gTTS)** and a user-friendly UI built with **ipywidgets**.  
 
