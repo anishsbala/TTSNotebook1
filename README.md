@@ -39,3 +39,31 @@ TTS/
 │── README.md # This file
 │── LICENSE
 │── .gitignore
+
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/TTS.git
+cd TTS
+python -m venv venv
+source venv/bin/activate   # On macOS/Linux
+venv\Scripts\activate      # On Windows
+pip install -r requirements.txt
+Dependencies include:
+
+gTTS
+
+ipywidgets
+
+PyPDF2
+
+notebook
+
+voila
+
+## ▶️ Usage
