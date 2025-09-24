@@ -1,69 +1,146 @@
-# 🗣️ Text-to-Speech (TTS) Notebook
+Here’s a polished version. It uses badges, emojis, cleaner section dividers, and clearer hierarchy. Copy the full block into `README.md` to keep formatting.
 
-This project provides an interactive **Text-to-Speech (TTS) system** built in a Jupyter Notebook environment.  
-It allows users to input text directly or upload a PDF, split text into smaller segments, generate audio using **gTTS**, and selectively package chosen segments into a downloadable ZIP file.  
-The front-end is powered by **ipywidgets**, making it deployable with **Voila** or on platforms like **Databricks**.
+````markdown
+# 🎙️ Text-to-Speech (TTS) Notebook  
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)  
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)  
+[![Voila](https://img.shields.io/badge/Voila-Web%20App-success.svg)](https://voila.readthedocs.io/)  
+
+Turn **text or PDF files into audio** with an interactive Jupyter Notebook. Powered by **Google Text-to-Speech (gTTS)** and a user-friendly UI built with **ipywidgets**.  
 
 ---
 
-## 🚀 Features
+## ✨ Features  
+- 📝 **Dual Input Modes**  
+  - Enter text directly  
+  - Upload PDF for auto-extraction  
 
-- **Multiple Input Modes**
-  - Type or paste text directly.
-  - Upload PDF files and extract text.
+- 🔊 **Segmented Conversion**  
+  - Splits text into ~3 equal parts  
+  - One audio file per segment  
 
-- **Automatic Segmentation**
-  - Split extracted text into ~3 equal segments for easier playback.
-  - Each segment processed separately for modular audio.
+- 📦 **Selective Packaging**  
+  - Pick which audio files to keep  
+  - Download as a ZIP with a single click  
 
-- **Audio Generation**
-  - Convert each text segment to `.mp3` using [gTTS](https://pypi.org/project/gTTS/).
-  - Built-in playback widgets for preview.
+- 🎛️ **Interactive UI**  
+  - Toggle buttons, file upload, checkboxes  
+  - Browser-friendly with **Voila**  
 
-- **Selective Export**
-  - Use checkboxes to select desired segments.
-  - Package selected audio files into a `.zip` with a base64 download link.
+---
 
-- **Interactive UI**
-  - Built with `ipywidgets` for toggles, checkboxes, dynamic labels, and download buttons.
-  - Designed for use in Jupyter + Voila dashboards.
+## 🛠️ Tech Stack  
+- **Python**  
+- **Jupyter Notebook** / **Voila**  
+- **gTTS**  
+- **ipywidgets**  
+- **PyPDF2**  
+- **zipfile** + **base64**  
+
+---
+
+## ⚙️ Installation  
+
+1. Clone the repo:  
+   ```bash
+   git clone https://github.com/<your-username>/TTS.git
+   cd TTS
+````
+
+2. Create & activate a virtual environment:
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Mac/Linux
+   venv\Scripts\activate      # Windows
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 🚀 Usage
+
+### Run in Jupyter
+
+```bash
+jupyter notebook
+```
+
+Open `tts_notebook.ipynb` and use the UI.
+
+### Run as Web App
+
+```bash
+voila tts_notebook.ipynb
+```
+
+Launches a clean web interface (no code visible).
+
+---
+
+## 🔄 Workflow
+
+1. Select input type (**Text** or **PDF**)
+2. Upload PDF or enter text
+3. Auto-split into segments
+4. Generate audio via gTTS
+5. Select audio segments
+6. Download as a ZIP
 
 ---
 
 ## 📂 Project Structure
 
+```
 TTS/
-│── notebooks/
-│ └── tts_app.ipynb # Main interactive notebook
-│── requirements.txt # Python dependencies
-│── README.md # This file
-│── LICENSE
-│── .gitignore
-
+├── notebooks/
+│   └── tts_notebook.ipynb
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
 
 ---
 
-## ⚙️ Installation
+## 📦 Requirements
 
-Clone the repository:
+Core dependencies:
 
-```bash
-git clone https://github.com/<your-username>/TTS.git
-cd TTS
-python -m venv venv
-source venv/bin/activate   # On macOS/Linux
-venv\Scripts\activate      # On Windows
-pip install -r requirements.txt
-Dependencies include:
+* `gTTS`
+* `ipywidgets`
+* `PyPDF2`
+* `notebook` + `voila`
 
-gTTS
+See `requirements.txt` for full list.
 
-ipywidgets
+---
 
-PyPDF2
+## 📸 Example UI
 
-notebook
+* Text area for manual input
+* PDF file upload widget
+* Toggle for input type
+* Checkboxes for segment selection
+* Auto-generated download links
 
-voila
+---
 
-## ▶️ Usage
+## 📜 License
+
+MIT License. See `LICENSE` for details.
+
+---
+
+## 🚧 Future Enhancements
+
+* Support for multiple TTS providers (Azure, OpenAI)
+* Voice, speed, and language customization
+* Transcript + audio side-by-side
+* Advanced multi-language PDF extraction
+
